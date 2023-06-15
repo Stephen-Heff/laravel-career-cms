@@ -18,7 +18,7 @@
                 <span class="w3-text-red">{{$errors->first('title')}}</span>
             @endif
         </div>
-        <div class="w3-margin-bottom">
+        <!-- <div class="w3-margin-bottom">
             <label for="slug">Slug:</label>
             <input type="text" name="slug" id="slug" value="{{old('slug', $posting->slug)}}" required>
 
@@ -26,7 +26,7 @@
                 <br>
                 <span class="w3-text-red">{{$errors->first('slug')}}</span>
             @endif
-        </div>
+        </div> -->
         <div class="w3-margin-bottom">
             <label for="type_id">Type:</label>
             <select name="type_id" id="type_id">
@@ -100,7 +100,7 @@
         </div>
   
 
-        <button type="submit" class="w3-button w3-green">Edit Posting</button>
+        <button type="submit" class="w3-btn w3-teal w3-round-large">Edit Posting</button>
 
     </form>
 

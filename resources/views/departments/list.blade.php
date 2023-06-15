@@ -1,10 +1,16 @@
 @extends ('layout.console')
 
 @section ('content')
-    <h2>Manage Departments</h2>
+<div class="w3-padding-large" style="display:flex; justify-content:space-between;align-items:center;" >
+<h2>Manage Departments</h2>
+<div>
+<a href="/console/departments/add" class="w3-btn w3-round-large w3-teal">Add New Department</a>
+</div>
+</div>
 
-    <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
-        <tr class="w3-blue">
+<div class="w3-responsive w3-padding">
+    <table class="w3-table-all w3-hoverable w3-margin-bottom ">
+        <tr class="w3-blue-gray">
             <th>Department Name</th>
             <th></th>
             <th></th>
@@ -17,8 +23,8 @@
             </tr>
         <?php endforeach; ?>
     </table>
+</div>
 
-    <a href="/console/departments/add" class="w3-button w3-green">New Department</a>
 
 </section>
 

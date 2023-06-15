@@ -14,33 +14,21 @@
 </head>
 <body>
 
-<header class="w3-padding">
+<header class="w3-padding w3-center">
 
-    <h1 class="w3-text-red">JOB Site!</h1>
+    <h1 class="w3-text-red ">You are logged out</h1>
 
 </header>
 
-<hr>
 
-@yield('content')
-
-<hr>
-
-<footer class="w3-padding">
-
-    Footer Text | 
-    Copyright {{date('Y')}}
-    <a href="#">Facebook</a> | 
-    <a href="#">Instagram</a>
-
-    <br>
-
+<footer class="w3-padding w3-center">
     @if (Auth::check())
         You are logged in as {{auth()->user()->first}} {{auth()->user()->last}} | 
         <a href="/console/logout">Log Out</a> | 
         <a href="/console/dashboard">Dashboard</a>
     @else
         <a href="/console/login">Login</a>
+        <a  href="https://webuild.stephenf.ca/">Return to website</a>
     @endif
 
 </footer>

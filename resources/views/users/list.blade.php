@@ -2,10 +2,16 @@
 
 @section ('content')
 
-    <h2>Manage Users</h2>
+<div class="w3-padding-large" style="display:flex; justify-content:space-between;align-items:center;" >
+<h2>Manage Users</h2>
+<div>
+<a href="/console/users/add" class="w3-btn w3-round-large w3-teal">Add New User</a>
+</div>
+</div>
 
-    <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
-        <tr class="w3-red">
+<div class="w3-responsive w3-padding">
+    <table class="w3-table-all w3-hoverable w3-margin-bottom ">
+        <tr class="w3-blue-gray">
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -24,8 +30,8 @@
             </tr>
         <?php endforeach; ?>
     </table>
+</div>
 
-    <a href="/console/users/add" class="w3-button w3-green">New User</a>
 
 </section>
 

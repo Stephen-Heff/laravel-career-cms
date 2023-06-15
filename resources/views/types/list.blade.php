@@ -1,35 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <!-- <link rel="stylesheet" href="/app.css">
-  <script src="/app.js"></script> -->
-</head>
-<body>
-  
-<header class="w3-padding">
-  <h1>
-    Admin Dashboard
-  </h1>
+@extends ('layout.console')
 
-  <?php if(Auth::check()):?>
-    You are logged in as <?= auth()->user()->first?><?= auth()->user()->last?>|
-    <a href="/console/logout/">Logout</a>
-    <a href="/console/dashboard/">Dashboard</a>
-    <a href="/">Website</a>
-  <?php else: ?>
-    <a href="/">Return to website</a>
-  <?php endif ?>
-</header>
+@section ('content')
 
-    <h2>Manage Types</h2>
+<div class="w3-padding-large" style="display:flex; justify-content:space-between;align-items:center;" >
+<h2>Manage Postings</h2>
+<div>
+<a href="/console/types/add" class="w3-btn w3-round-large w3-teal">Add New Type</a>
 
-    <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
-        <tr class="w3-blue">
+</div>
+</div>
+  <div class="w3-responsive w3-padding">
+    <table class="w3-table-all w3-hoverable w3-margin-bottom ">
+        <tr class="w3-blue-gray">
             <th>Name</th>
             <th></th>
             <th></th>
@@ -42,10 +24,8 @@
             </tr>
         <?php endforeach; ?>
     </table>
-
-    <a href="/console/types/add" class="w3-button w3-green">New Type</a>
+  </div>
 
 </section>
 
-</body>
-</html>
+@endsection

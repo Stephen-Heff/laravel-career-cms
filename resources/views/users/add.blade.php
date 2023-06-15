@@ -49,7 +49,7 @@
             @endif
         </div>
 
-        <button type="submit" class="w3-button w3-green">Add User</button>
+        <button type="submit" class="w3-btn w3-teal w3-round-large">Add User</button>
 
     </form>
 
