@@ -18,7 +18,6 @@ class Posting extends Model
         'title',
         'deadline',
         'description',
-        'slug',
         'email',
         'publish',
         'type_id',

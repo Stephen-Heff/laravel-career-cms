@@ -22,7 +22,6 @@ class PostingFactory extends Factory
         return [
            
                 'title' => $this->faker->sentence,
-                'slug' => $this->faker->slug,
                 'deadline' => $this->faker->dateTime,
                 'publish' => $this->faker->boolean,
                 'description' => $this->faker->paragraph,

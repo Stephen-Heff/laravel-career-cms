@@ -25,7 +25,7 @@ class UsersController extends Controller
         return view('users.add');
 
     }
-    
+
     public function add()
     {
 
@@ -75,7 +75,8 @@ class UsersController extends Controller
         $user->last = $attributes['last'];
         $user->email = $attributes['email'];
 
-        if($attributes['password']) $user->password = $attributes['password'];
+        if ($attributes['password'])
+            $user->password = $attributes['password'];
 
         $user->save();
 
@@ -84,20 +85,28 @@ class UsersController extends Controller
 
     }
 
-    public function delete(User $user)
+    public function destroy(User $user)
     {
 
-        if($user->id == auth()->user()->id)
-        {
+        if ($user->id == auth()->user()->id) {
             return redirect('/console/users/list')
-                ->with('message', 'Cannot delete your own user account!');        
+                ->with('message', 'Cannot delete your own user account!');
         }
-        
+
         $user->delete();
 
         return redirect('/console/users/list')
-            ->with('message', 'User has been deleted!');                
-        
+            ->with('message', 'User has been deleted!');
+
     }
-    
+
+    public function delete(User $user)
+    {
+        return view('users.delete', compact('user'));
+    }
+
+
+
+
+
 }

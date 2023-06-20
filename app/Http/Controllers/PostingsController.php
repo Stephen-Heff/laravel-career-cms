@@ -27,17 +27,16 @@ class PostingsController extends Controller
             'departments' => Department::all(),
         ]);
     }
-    
+
     public function add()
     {
 
         $attributes = request()->validate([
             'title' => 'required',
-            'slug' => 'required|unique:postings|regex:/^[A-z\-]+$/', 
-            'deadline'=> 'required',
+            'deadline' => 'required',
             'description' => 'required',
             'email' => 'required',
-            'publish'=>'required',
+            'publish' => 'required',
             'type_id' => 'required',
             'department_id' => 'required',
         ]);
@@ -45,7 +44,6 @@ class PostingsController extends Controller
         $posting = new Posting();
         $posting->title = $attributes['title'];
         $posting->deadline = $attributes['deadline'];
-        $posting->slug = $attributes['slug'];
         $posting->description = $attributes['description'];
         $posting->email = $attributes['email'];
         $posting->publish = $attributes['publish'];
@@ -74,11 +72,6 @@ class PostingsController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'deadline' => 'required',
-            'slug' => [
-                'required',
-                Rule::unique('postings')->ignore($posting->id),
-                'regex:/^[A-z\-]+$/',
-            ],
             'description' => 'required',
             'email' => 'required',
             'publish' => 'required',
@@ -87,7 +80,6 @@ class PostingsController extends Controller
         ]);
 
         $posting->title = $attributes['title'];
-        $posting->slug = $attributes['slug'];
         $posting->type_id = $attributes['type_id'];
         $posting->deadline = $attributes['deadline'];
         $posting->department_id = $attributes['department_id'];
@@ -102,14 +94,18 @@ class PostingsController extends Controller
 
     public function delete(Posting $posting)
     {
-
-        $posting->delete();
-        
-        return redirect('/console/postings/list')
-            ->with('message', 'Posting has been deleted!');        
+        return view('postings.delete', compact('posting'));
     }
 
-  
+    public function destroy(Posting $posting)
+    {
+        $posting->delete();
+
+        return redirect('/console/postings/list')
+            ->with('message', 'Posting has been deleted!');
+    }
+
+
     public function show($id)
     {
         $posting = Posting::find($id);
@@ -117,5 +113,5 @@ class PostingsController extends Controller
         // Handle the response, e.g., return the posting as JSON
         return response()->json($posting);
     }
-    
+
 }

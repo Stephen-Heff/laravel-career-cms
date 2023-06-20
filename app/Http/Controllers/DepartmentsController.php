@@ -23,7 +23,7 @@ class DepartmentsController extends Controller
 
         return view('departments.add');
     }
-    
+
     public function add()
     {
 
@@ -62,10 +62,15 @@ class DepartmentsController extends Controller
 
     public function delete(Department $department)
     {
+        return view('departments.delete', compact('department'));
+    }
+
+    public function destroy(Department $department)
+    {
         $department->delete();
-        
+
         return redirect('/console/departments/list')
-            ->with('message', 'Department has been deleted!');        
+            ->with('message', 'Department has been deleted!');
     }
 
 }

@@ -23,7 +23,7 @@ class TypesController extends Controller
 
         return view('types.add');
     }
-    
+
     public function add()
     {
 
@@ -62,10 +62,16 @@ class TypesController extends Controller
 
     public function delete(Type $type)
     {
-        $type->delete();
-        
-        return redirect('/console/types/list')
-            ->with('message', 'Type has been deleted!');        
+        return view('types.delete', compact('type'));
     }
+
+    public function destroy(Type $type)
+    {
+        $type->delete();
+
+        return redirect('/console/types/list')
+            ->with('message', 'Type has been deleted!');
+    }
+
 
 }

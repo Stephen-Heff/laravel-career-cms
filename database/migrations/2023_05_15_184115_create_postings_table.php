@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('postings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug')->unique();
             $table->timestamp('deadline');
             $table->foreignId('department_id');
             $table->text('description');
